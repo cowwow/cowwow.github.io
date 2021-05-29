@@ -280,7 +280,7 @@
             <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imgicon-remixicon.svg" alt="Q">
         </span>
 
-        <h2>居然用了 2 年一共才写了 16 篇文章!</h2>
+        <h2>居然用了 2 年一共才写了 18 篇文章!</h2>
     </div>
 </div>
 <div class="article-content">
@@ -289,6 +289,16 @@
         <p>
             2021
         </p>
+        
+        <a href="/2021/05/30/13/">
+            <span>13</span>
+            <time>05-30</time>
+        </a>
+        
+        <a href="/2021/05/30/12/">
+            <span>12</span>
+            <time>05-30</time>
+        </a>
         
         <a href="/2021/05/27/11/">
             <span>✨叮~ ʰᵒᵇᵇⁱᵉˢ·奥奇传说</span>
@@ -488,6 +498,18 @@ setInterval("createtime()",250);
 <script>
 	console.log('\n %c CowWow %c https://cowwow.cn \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script>
+    if(!('loading' in HTMLImageElement.prototype)) {
+        const srp = document.createElement('script');
+        srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';
+        document.body.append(srp);
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(el => {
+            el.setAttribute('data-src', el.getAttribute('src'));
+            el.removeAttribute('src');
+            el.classList.add('lazyload');
+    })
+}
+</script></body>
 
 </html>

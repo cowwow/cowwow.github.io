@@ -303,11 +303,8 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <p><figure class="banner" style="width:undefinedpx; height:undefinedpx;margin: 0 auto;">
-      <img src="/medium-image-plugin/thumbnailsundefined" alt="9.png" class="img-small" data-large="/imgundefined">
-      </figure></p>
-<script src="/medium-image-plugin/lib.js"></script>
-      <link rel="stylesheet" href="/medium-image-plugin/lib.css">
+        <p><img loading="lazy" src="https://7.dusays.com/2021/05/26/aef24a30d3e87.png" alt="9.png"></p>
+
     </div>
 </div>
 <style>
@@ -459,6 +456,18 @@ setInterval("createtime()",250);
 <script>
 	console.log('\n %c CowWow %c https://cowwow.cn \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script>
+    if(!('loading' in HTMLImageElement.prototype)) {
+        const srp = document.createElement('script');
+        srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';
+        document.body.append(srp);
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(el => {
+            el.setAttribute('data-src', el.getAttribute('src'));
+            el.removeAttribute('src');
+            el.classList.add('lazyload');
+    })
+}
+</script></body>
 
 </html>

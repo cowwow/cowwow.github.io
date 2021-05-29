@@ -367,8 +367,7 @@
 <blockquote>
 <p>过一个平凡无趣的人生实在太容易了，你可以不读书，不冒险，不运动，不写作，不外出，不折腾……但是，人生最后悔的事情就是：我本可以。</p>
 </blockquote>
-<script src="/medium-image-plugin/lib.js"></script>
-      <link rel="stylesheet" href="/medium-image-plugin/lib.css">
+
     </div>
 </div>
 <style>
@@ -520,6 +519,18 @@ setInterval("createtime()",250);
 <script>
 	console.log('\n %c CowWow %c https://cowwow.cn \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script>
+    if(!('loading' in HTMLImageElement.prototype)) {
+        const srp = document.createElement('script');
+        srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';
+        document.body.append(srp);
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(el => {
+            el.setAttribute('data-src', el.getAttribute('src'));
+            el.removeAttribute('src');
+            el.classList.add('lazyload');
+    })
+}
+</script></body>
 
 </html>

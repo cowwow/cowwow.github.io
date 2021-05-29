@@ -514,8 +514,7 @@
         <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
     </div>
 </div>
-<!-- 元宵节灯笼样式结束 --><script src="/medium-image-plugin/lib.js"></script>
-      <link rel="stylesheet" href="/medium-image-plugin/lib.css">
+<!-- 元宵节灯笼样式结束 -->
     </div>
 </div>
 <style>
@@ -653,6 +652,18 @@ setInterval("createtime()",250);
 <script>
 	console.log('\n %c CowWow %c https://cowwow.cn \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script>
+    if(!('loading' in HTMLImageElement.prototype)) {
+        const srp = document.createElement('script');
+        srp.src = 'https://cdn.jsdelivr.net/npm/lazysizes@5.1.1/lazysizes.min.js';
+        document.body.append(srp);
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(el => {
+            el.setAttribute('data-src', el.getAttribute('src'));
+            el.removeAttribute('src');
+            el.classList.add('lazyload');
+    })
+}
+</script></body>
 
 </html>
