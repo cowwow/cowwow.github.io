@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>文章2018 | 故事里的老神仙</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.13.3"><!-- inject head--><link rel="canonical" href="http://example.com/archives/2018/"><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><!-- swiper--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"><!-- fancybox ui--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.min.css"><!-- katex--><!-- Open Graph--><meta name="description" content="热爱生活"><!-- pwa--><meta name="theme-color" content="#006a73"><meta name="apple-mobile-web-app-status-bar-style" content="#006a73"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#006a73"><link rel="mask-icon" href="/img/pwa/favicon.ico" color="#006a73"><link rel="apple-touch-icon" sizes="180x180" href="/img/pwa/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/favicon_16.ico"><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/favicon_32.ico"><link rel="bookmark" href="/img/pwa/favicon.ico"><script>console.log(' %c Solitude %c ' + '1.13.3' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+    
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+    
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+    
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+    
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+        
+                if (name && keyObj[name]) return
+        
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+        }
+    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2019-01-01 00:00:00',
+    lazyload: {
+        enable: true,
+        error: '/img/error_load.avif'
+    },
+    copyright: {"limit":50,"author":"作者: 荖鉮佡","link":"链接: ","source":"来源: 故事里的老神仙","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可"},
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: ["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多","🎮 电竞游戏爱好者"],
+        sayhello3: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'fancybox',
+    post_ai: false,
+    right_menu: false,
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: false,
+    is_page: true,
+    is_home: false,
+    page: '',
+    toc: false,
+    comment: false,
+    ai_text: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- background img--><!-- loading--><div id="loading-box" onclick="preloader.endLoading();" style="zoom:1"><div class="loading-bg"><img class="loading-img nolazyload" src="/img/pwa/favicon.ico" alt="loading image"></div></div><script>const preloader = {
+    endLoading: () => {
+        document.getElementById('loading-box').classList.toggle('loaded');
+    },
+    initLoading: () => {
+        document.getElementById('loading-box').classList.remove('loaded');
+    },
+    removePaceDone: () => {
+        document.getElementById('body').classList = 'pace-done';
+    }
+}
+window.addEventListener('load', () => {
+    preloader.endLoading();
+});
+window.addEventListener('pjax:send', () => {
+    preloader.initLoading();
+});
+document.addEventListener('pjax:complete', () => {
+    preloader.endLoading();
+});</script><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="console-card-group"><div class="console-card-group-right"><div class="console-card tags" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">寻找感兴趣的领域</div></div><div class="card-tag-cloud"><a href="/tags/highlight/">highlight<sup>1</sup></a><a href="/tags/Bar/">Bar<sup>1</sup></a><a href="/tags/%E6%94%B6%E8%97%8F/">收藏<sup>2</sup></a><a href="/tags/%E5%8F%A5%E5%AD%90/">句子<sup>1</sup></a><a href="/tags/%E8%AF%97%E6%AD%8C/">诗歌<sup>1</sup></a><a href="/tags/Acrylic/">Acrylic<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/">测试文件<sup>1</sup></a><a href="/tags/%E6%88%91%E7%9A%84%E5%B0%8F%E5%85%B4%E8%B6%A3/">我的小兴趣<sup>1</sup></a><a href="/tags/%E8%9A%82%E8%9A%81/">蚂蚁<sup>1</sup></a><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔<sup>1</sup></a></div></div><div class="console-card history" onclick="sco.hideConsole()"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/"><span class="card-archive-list-date">2018</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/"><span class="card-archive-list-date">2020</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/"><span class="card-archive-list-date">2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/"><span class="card-archive-list-date">2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/"><span class="card-archive-list-date">2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/"><span class="card-archive-list-date">2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span class="card-archive-list-count-unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude st-side-bar-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>显示模式</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>链接</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="solitude  st-group-fill"></i><span>友情链接</span></a></li><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/equipment/"><i class="solitude  st-laptop-line"></i><span>装备</span></a></li><li><a class="site-page child" href="/essay/"><i class="solitude  st-moon-clear-fill"></i><span>碎碎念</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/shouji/"><i class="solitude  st-fire-fill"></i><span>句子收集</span></a></li><li><a class="site-page child" href="/love/"><i class="solitude  st-gift-fill"></i><span>LOVE</span></a></li><li><a class="site-page child" href="/time/"><i class="solitude  st-star-smile-fill"></i><span>TIME</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li><li><a class="site-page child" href="/update/"><i class="solitude  st-book-mark-fill"></i><span>更新</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/highlight/">highlight<sup>1</sup></a><a href="/tags/Bar/">Bar<sup>1</sup></a><a href="/tags/%E6%94%B6%E8%97%8F/">收藏<sup>2</sup></a><a href="/tags/%E5%8F%A5%E5%AD%90/">句子<sup>1</sup></a><a href="/tags/%E8%AF%97%E6%AD%8C/">诗歌<sup>1</sup></a><a href="/tags/Acrylic/">Acrylic<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/">测试文件<sup>1</sup></a><a href="/tags/%E6%88%91%E7%9A%84%E5%B0%8F%E5%85%B4%E8%B6%A3/">我的小兴趣<sup>1</sup></a><a href="/tags/%E8%9A%82%E8%9A%81/">蚂蚁<sup>1</sup></a><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔<sup>1</sup></a></div></div></div></div><!-- keyboard--><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">CowWow</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">文章2018</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><span>首页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>链接</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="solitude  st-group-fill"></i><span>友情链接</span></a></li><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/equipment/"><i class="solitude  st-laptop-line"></i><span>装备</span></a></li><li><a class="site-page child" href="/essay/"><i class="solitude  st-moon-clear-fill"></i><span>碎碎念</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/shouji/"><i class="solitude  st-fire-fill"></i><span>句子收集</span></a></li><li><a class="site-page child" href="/love/"><i class="solitude  st-gift-fill"></i><span>LOVE</span></a></li><li><a class="site-page child" href="/time/"><i class="solitude  st-star-smile-fill"></i><span>TIME</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li><li><a class="site-page child" href="/update/"><i class="solitude  st-book-mark-fill"></i><span>更新</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机一篇文章" href="javascript:void(0);"><i class="solitude st-dice-line"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);"><i class="solitude st-dashboard-fill"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav></header><main class="layout" id="content-inner"><div id="archive"><div class="article-sort-title">文章<sup>25</sup></div><div class="article-sort"><div class="article-sort-item year">2018</div><div class="article-sort-item"><a class="article-sort-item-img" href="/2018/07/24/markdown/" title="Markdown Style test"><img src= "/img/loading.avif" data-lazy-src="/img/default.avif" alt="Markdown Style test"></a><div class="article-sort-item-info"><a class="article-sort-item-title" href="/2018/07/24/markdown/" title="Markdown Style test" onclick="window.event.cancelBubble=true;">Markdown Style test</a><div class="article-sort-item-tags"><a class="article-meta__tags" href="/tags/highlight/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation">highlight</span></a><a class="article-meta__tags" href="/tags/Bar/" onclick="window.event.cancelBubble=true;"><span class="tags-punctuation">Bar</span></a></div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><div class="toPageGroup"><input id="toPageText" oninput="value=value.replace(/[^0-9]/g,'')" maxlength="3" title="跳转到指定页面" onkeyup="if (this.value === '0') this.value = ''"><a id="toPageButton" onclick="sco.toPage()"><i class="solitude st-show-right-line"></i></a></div></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src= "/img/loading.avif" data-lazy-src="/img/logo.jpg"><div class="avatar-sticker"><img class="avatar-sticker-img" src= "/img/loading.avif" data-lazy-src="/img/1f353.webp" alt="心情贴纸"></div></div><div class="author-info__description_group"><div class="author-info__description">分享自己对编程的<b>热爱</b>，对美好生活的<b>向往</b>，对知识海洋<b>探索历程</b>。</div><div class="author-info__description2">相信你可以在这里找到对你有用的知识和教程。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">荖鉮佡</div><div class="author-info__desc">我们都在用各自的方式拒绝乏味的人生,所有的坚持都会成为奇迹✨</div></a><div class="card-info-social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/07/14/%E5%9F%BA%E6%9C%ACmd%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/" title="样式测试"><img alt="样式测试" src= "/img/loading.avif" data-lazy-src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/07/14/%E5%9F%BA%E6%9C%ACmd%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/" title="样式测试">样式测试</a><a class="article-recent_post_categories" href="/2024/07/14/%E5%9F%BA%E6%9C%ACmd%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/">测试</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/14/hello-world/" title="Hello World"><img alt="Hello World" src= "/img/loading.avif" data-lazy-src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/07/14/hello-world/" title="Hello World">Hello World</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/06/%E5%88%BB%E7%BA%B9%E6%A3%B1%E8%83%B8%E5%88%87%E5%8F%B6%E8%9A%81/" title="刻纹棱胸切叶蚁"><img alt="刻纹棱胸切叶蚁" src= "/img/loading.avif" data-lazy-src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/05/06/%E5%88%BB%E7%BA%B9%E6%A3%B1%E8%83%B8%E5%88%87%E5%8F%B6%E8%9A%81/" title="刻纹棱胸切叶蚁">刻纹棱胸切叶蚁</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/06/%E8%9A%81%E6%97%8F%E5%AE%B6%E8%B0%B1/" title="蚁族家谱"><img alt="蚁族家谱" src= "/img/loading.avif" data-lazy-src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/03/06/%E8%9A%81%E6%97%8F%E5%AE%B6%E8%B0%B1/" title="蚁族家谱">蚁族家谱</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/03/06/%E8%9A%82%E8%9A%81%E9%A5%B2%E5%85%BB%E7%BB%8F%E9%AA%8C/" title="蚂蚁饲养经验"><img alt="蚂蚁饲养经验" src= "/img/loading.avif" data-lazy-src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/03/06/%E8%9A%82%E8%9A%81%E9%A5%B2%E5%85%BB%E7%BB%8F%E9%AA%8C/" title="蚂蚁饲养经验">蚂蚁饲养经验</a></div></div></div></div><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"><a href="/tags/highlight/">highlight<sup>1</sup></a><a href="/tags/Bar/">Bar<sup>1</sup></a><a href="/tags/%E6%94%B6%E8%97%8F/">收藏<sup>2</sup></a><a href="/tags/%E5%8F%A5%E5%AD%90/">句子<sup>1</sup></a><a href="/tags/%E8%AF%97%E6%AD%8C/">诗歌<sup>1</sup></a><a href="/tags/Acrylic/">Acrylic<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/">测试文件<sup>1</sup></a><a href="/tags/%E6%88%91%E7%9A%84%E5%B0%8F%E5%85%B4%E8%B6%A3/">我的小兴趣<sup>1</sup></a><a href="/tags/%E8%9A%82%E8%9A%81/">蚂蚁<sup>1</sup></a><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔<sup>1</sup></a></div><style>.card-tag-cloud::after {
+    display: none !important;
+}</style><hr><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/"><span class="card-archive-list-date">2018</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/"><span class="card-archive-list-date">2020</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/"><span class="card-archive-list-date">2021</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/"><span class="card-archive-list-date">2022</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/"><span class="card-archive-list-date">2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">4</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/"><span class="card-archive-list-date">2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">5</span><span class="card-archive-list-count-unit">篇</span></div></a></li></ul><hr><div class="webinfo"><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude st-folder-fill"></i><div class="item-name">文章总数 :</div></div><div class="item-count">25</div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude st-visitor-line"></i><div class="item-name">总访问数 :</div></div><span id="busuanzi_site_pv"><i class="solitude st-loading-line"></i></span></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude st-team-fill"></i><div class="item-name">总访客数 :</div></div><span id="busuanzi_site_uv"><i class="solitude st-loading-line"></i></span></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude st-calendar-todo-fill"></i><div class="item-name">建站天数 :</div></div><div class="item-count" id="runtimeshow"></div></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude st-loop-left-fill"></i><div class="item-name">最后更新 :</div></div><time class="item-count" datetime="2024-07-21T11:31:08.278Z"></time></div><div class="webinfo-item"><div class="webinfo-item-title"><i class="item-icon solitude st-word-fill"></i><div class="item-name">全站字数 :</div></div><div class="item-count">23.2k</div></div></div></div></div></div></main><footer id="footer"><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2019 - 2024 By&nbsp;<a class="footer-bar-link" href="/">荖鉮佡</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude" alt="主题">主题</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=1.13.3"></script><script src="/js/main.js?v=1.13.3"></script><script src="/js/third_party/waterfall.min.js?v=1.13.3"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.13.3"></script><script>dark()
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/19.1.3/lazyload.iife.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script><script>var meting_api = 'https://meting.qjqq.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script><script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"><script defer pjax src="https://pv.lemonso.com/js"></script></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html><script>const posts=["2024/07/14/基本md语法测试/","2024/07/14/hello-world/","2024/05/06/刻纹棱胸切叶蚁/","2024/03/06/蚁族家谱/","2024/03/06/蚂蚁饲养经验/","2023/09/13/蚂蚁日记/","2023/03/20/2023电影/","2023/02/26/龙巧雕/","2023/02/25/树脂女孩摆件收藏/","2022/10/09/短文收集/","2022/10/06/蔚蓝逐梦/","2022/08/21/daishangtadebizi/","2022/08/18/Blender学习记录1/","2022/08/17/2022电影/","2021/06/02/15/","2021/05/30/13/","2021/03/02/宋词收集/","2021/02/24/宇宙/","2021/02/24/2021电影/","2021/02/24/蚂蚁/","2021/02/24/石头/","2021/01/27/随笔/","2021/01/26/在美国有这样一首诗/","2020/11/16/shenghuodebuerfamen/","2018/07/24/markdown/"];function toRandomPost(){ pjax.loadUrl(GLOBAL_CONFIG.root+posts[Math.floor(Math.random()*posts.length)]); }</script>
