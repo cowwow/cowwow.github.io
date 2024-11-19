@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
     const $searchDialog = document.querySelector("#local-search .search-dialog");
     window.openSearch = () => {
         utils.animateIn($searchMask, "to_show 0.5s");
-        $searchDialog.style.display = "flex";
+        $searchDialog.style.display = "block";
         setTimeout(() => {
             document.querySelector("#local-search .search-box-input").focus();
         }, 100);
@@ -101,15 +101,18 @@ window.addEventListener("load", () => {
     function initUI() {
         const $results = document.getElementById("search-results");
         const $search = document.getElementById("search-input");
-        $search.addEventListener('input', function (e) {
-            $results.innerHTML = '';
-            query = this.value.trim();
-            if (query !== '') {
-                results = search(query);
-                renderResults(results, currentPage);
-                renderPagination(results.length);
-            } else {
-                clearSearchResults();
+        $search.addEventListener('keydown', function (e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+                $results.innerHTML = '';
+                query = this.value.trim();
+                if (query !== '') {
+                    results = search(query);
+                    renderResults(results, currentPage);
+                    renderPagination(results.length);
+                } else {
+                    clearSearchResults();
+                }
             }
         });
     }

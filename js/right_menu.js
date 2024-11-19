@@ -1,5 +1,4 @@
 let selectTextNow = "";
-let firstShowRightMenu = true;
 const selectText = () => {
     selectTextNow = document.selection
         ? document.selection.createRange().text
@@ -107,18 +106,9 @@ function stopMaskScroll() {
 
 window.oncontextmenu = (ele) => {
     if (document.body.clientWidth <= 768) return;
-    if (GLOBAL_CONFIG.right_menu.ctrlOriginalMenu) {
-        if (firstShowRightMenu) {
-            firstShowRightMenu = false;
-            utils.snackbarShow(GLOBAL_CONFIG.right_menu.ctrlOriginalMenu, false, 2000);
-        }
-        if (ele.ctrlKey) {
-            return true;
-        }
-    }
     let x = ele.clientX + 10;
     let y = ele.clientY;
-    Array.from(rm.menuItems.other).forEach((item) => (item.style.display = "flex"));
+    Array.from(rm.menuItems.other).forEach((item) => (item.style.display = "block"));
     rm.globalEvent = ele;
 
     let display = false;
@@ -127,9 +117,9 @@ window.oncontextmenu = (ele) => {
 
     if (selectTextNow && window.getSelection()) {
         display = true;
-        rm.menuItems.copy.style.display = "flex";
-        GLOBAL_CONFIG.comment && (rm.menuItems.comment.style.display = "flex");
-        rm.menuItems.search && (rm.menuItems.search.style.display = "flex");
+        rm.menuItems.copy.style.display = "block";
+        GLOBAL_CONFIG.comment && (rm.menuItems.comment.style.display = "block");
+        rm.menuItems.search && (rm.menuItems.search.style.display = "block");
     } else {
         rm.menuItems.copy.style.display = "none";
         GLOBAL_CONFIG.comment && (rm.menuItems.comment.style.display = "none");
@@ -138,8 +128,8 @@ window.oncontextmenu = (ele) => {
 
     if (link) {
         display = true;
-        rm.menuItems.new.style.display = "flex";
-        rm.menuItems.copyLink.style.display = "flex";
+        rm.menuItems.new.style.display = "block";
+        rm.menuItems.copyLink.style.display = "block";
         rm.domhref = link;
     } else {
         rm.menuItems.new.style.display = "none";
@@ -148,8 +138,8 @@ window.oncontextmenu = (ele) => {
 
     if (src) {
         display = true;
-        rm.menuItems.copyImg.style.display = "flex";
-        rm.menuItems.downloadImg.style.display = "flex";
+        rm.menuItems.copyImg.style.display = "block";
+        rm.menuItems.downloadImg.style.display = "block";
         rm.domsrc = src;
     } else {
         rm.menuItems.copyImg.style.display = "none";
@@ -159,14 +149,14 @@ window.oncontextmenu = (ele) => {
     let tagName = ele.target.tagName.toLowerCase();
     if (tagName === "input" || tagName === "textarea") {
         display = true;
-        rm.menuItems.paste.style.display = "flex";
+        rm.menuItems.paste.style.display = "block";
     } else {
         rm.menuItems.paste.style.display = "none";
     }
-    let cls = ele.target.className.toLowerCase();
-    if (cls.match(/aplayer/)) {
+
+    if (tagName === "meting-js") {
         display = true;
-        rm.menuItems.music.forEach((item) => (item.style.display = "flex"));
+        rm.menuItems.music.forEach((item) => (item.style.display = "block"));
     } else {
         rm.menuItems.music[0] &&
             rm.menuItems.music.forEach((item) => (item.style.display = "none"));
@@ -175,7 +165,6 @@ window.oncontextmenu = (ele) => {
     Array.from(display ? rm.menuItems.other : rm.menuItems.plugin).forEach(
         (item) => (item.style.display = "none")
     );
-
     Array.from(display ? rm.menuItems.plugin : rm.menuItems.other).forEach(
         (item) => (item.style.display = "block")
     );
