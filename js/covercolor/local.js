@@ -1,136 +1,117 @@
-const coverColor = () => {
-    const path = document.getElementById("post-cover")?.src;
-    path ? localColor(path) : setDefaultThemeColors();
+const coverColor = (music = false) => {
+    if (music) {
+        var coverPath = document.querySelector("#nav-music .aplayer-pic").style.backgroundImage;
+        const coverPathMatch = /url\("([^"]+)"\)/.exec(coverPath);
+        coverPath = coverPathMatch ? coverPathMatch[1] : '';
+        if (coverPath) {
+            localColor(coverPath,music);
+        }
+    }
+    else {
+        const pageColor = PAGE_CONFIG.color || document.getElementById("post-cover")?.src;
+        if (pageColor) {
+            localColor(pageColor);
+        } else {
+            setDefaultThemeColors();
+        }
+    }
 }
 
-function setDefaultThemeColors() {
-    document.documentElement.style.setProperty('--efu-main', 'var(--efu-theme)');
-    document.documentElement.style.setProperty('--efu-main-op', 'var(--efu-theme-op)');
-    document.documentElement.style.setProperty('--efu-main-op-deep', 'var(--efu-theme-op-deep)');
-    document.documentElement.style.setProperty('--efu-main-none', 'var(--efu-theme-none)');
+const setDefaultThemeColors = () => {
+    const themeVars = {
+        '--efu-main': 'var(--efu-theme)',
+        '--efu-main-op': 'var(--efu-theme-op)',
+        '--efu-main-op-deep': 'var(--efu-theme-op-deep)',
+        '--efu-main-none': 'var(--efu-theme-none)'
+    };
+    Object.entries(themeVars).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(key, value);
+    });
     initThemeColor();
 }
 
-const localColor = path => {
+const localColor = (path, music = false) => {
+    const colorThief = new ColorThief();
     const img = new Image();
     img.crossOrigin = "Anonymous";
-    img.onload = () => setThemeColors(calculateColor(img));
+    img.onload = () => {
+        const color = colorThief.getColor(img);
+        if(music) {
+            setMusicColor(rgbToHex(color));
+        }
+        else{
+            setThemeColors(rgbToHex(color), ...color);
+        }
+    };
     img.onerror = () => console.error('Image Error');
     img.src = path;
 }
 
-const calculateColor = img => {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    const data = ctx.getImageData(0, 0, img.width, img.height).data;
-    const {r, g, b} = calculateRGB(data);
-    let value = rgbToHex(r, g, b);
-    return getContrastYIQ(value) === "light" ? LightenDarkenColor(value, -50) : value;
+const rgbToHex = ([r, g, b]) => {
+    return '#' + [r, g, b].map(x => Math.floor(x * 0.8).toString(16).padStart(2, '0')).join('');
 }
 
-function calculateRGB(data) {
-    let r = 0, g = 0, b = 0;
-    const step = 5;
-    for (let i = 0; i < data.length; i += 4 * step) {
-        r += data[i];
-        g += data[i + 1];
-        b += data[i + 2];
+const setMusicColor = (value) => {
+    if (!value) return setDefaultThemeColors();
+    const item = document.querySelector("#nav-music")
+    item.style.setProperty('--efu-music', value);
+}
+
+
+const setThemeColors = (value, r = null, g = null, b = null) => {
+    if (!value) return setDefaultThemeColors();
+
+    const themeColors = {
+        '--efu-main': value,
+        '--efu-main-op': value + '23',
+        '--efu-main-op-deep': value + 'dd',
+        '--efu-main-none': value + '00'
+    };
+    
+    Object.entries(themeColors).forEach(([key, color]) => {
+        document.documentElement.style.setProperty(key, color);
+    });
+
+    if (r !== null && g !== null && b !== null) {
+        const brightness = Math.round(((r * 299) + (g * 587) + (b * 114)) / 1000);
+        if (brightness < 125) {
+            adjustCardStyles();
+            value = LightenDarkenColor(value, 50);
+            setThemeColors(value);
+        }
     }
-    r = Math.floor(r / (data.length / 4 / step));
-    g = Math.floor(g / (data.length / 4 / step));
-    b = Math.floor(b / (data.length / 4 / step));
-    return {r, g, b};
+
+    document.getElementById("coverdiv").classList.add("loaded");
+    initThemeColor();
 }
 
-function rgbToHex(r, g, b) {
-    return "#" + [r, g, b].map(x => x.toString(16).padStart(2, '0')).join('');
-}
-
-function LightenDarkenColor(col, amt) {
+const LightenDarkenColor = (col, amt) => {
     let usePound = false;
-
     if (col[0] === "#") {
         col = col.slice(1);
         usePound = true;
     }
+    let num = parseInt(col, 16);
+    let r = (num >> 16) + amt;
+    let g = ((num >> 8) & 0x00FF) + amt;
+    let b = (num & 0x0000FF) + amt;
 
-    const num = parseInt(col, 16);
-    const r = Math.min(255, Math.max(0, (num >> 16) + amt));
-    const b = Math.min(255, Math.max(0, ((num >> 8) & 0xff) + amt));
-    const g = Math.min(255, Math.max(0, (num & 0xff) + amt));
+    r = Math.max(Math.min(r, 255), 0);
+    g = Math.max(Math.min(g, 255), 0);
+    b = Math.max(Math.min(b, 255), 0);
 
-    return `${usePound ? "#" : ""}${(g | (b << 8) | (r << 16)).toString(16).padStart(6, "0")}`;
+    return (usePound ? "#" : "") + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
-function getContrastYIQ(hexcolor) {
-    let colorrgb = colorRgb(hexcolor);
-    let colors = colorrgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
-    let red = colors[1];
-    let green = colors[2];
-    let blue = colors[3];
-    let brightness = (red * 299) + (green * 587) + (blue * 114);
-    brightness = brightness / 255000;
-    return brightness >= 0.5 ? "light" : "dark";
-}
+const adjustCardStyles = () => {
+    const cardContents = document.querySelectorAll('.card-content');
+    cardContents.forEach(item => {
+        item.style.setProperty('--efu-card-bg', 'var(--efu-white)');
+    });
 
-function colorRgb(str) {
-    const HEX_SHORT_REGEX = /^#([0-9a-fA-f]{3})$/;
-    const HEX_LONG_REGEX = /^#([0-9a-fA-f]{6})$/;
-    const HEX_SHORT_LENGTH = 4;
-
-    if (!str || typeof str !== 'string') {
-        return str;
-    }
-
-    const sColor = str.toLowerCase();
-    let hexValue = "";
-
-    if (sColor && (HEX_SHORT_REGEX.test(sColor) || HEX_LONG_REGEX.test(sColor))) {
-        hexValue = sColor.length === HEX_SHORT_LENGTH ?
-            sColor.replace(/^#(.)/g, "#$1$1") :
-            sColor;
-
-        const rgbValue = hexValue.slice(1)
-            .match(/.{2}/g)
-            .map(val => parseInt(val, 16));
-
-        return `rgb(${rgbValue[0]}, ${rgbValue[1]}, ${rgbValue[2]})`;
-    } else {
-        return sColor;
-    }
-}
-
-function setThemeColors(value, r = null, g = null, b = null) {
-    if (value) {
-        document.documentElement.style.setProperty('--efu-main', value);
-        document.documentElement.style.setProperty('--efu-main-op', value + '23');
-        document.documentElement.style.setProperty('--efu-main-op-deep', value + 'dd');
-        document.documentElement.style.setProperty('--efu-main-none', value + '00');
-
-        if (r && g && b) {
-            let brightness = Math.round(((parseInt(r) * 299) + (parseInt(g) * 587) + (parseInt(b) * 114)) / 1000);
-            if (brightness < 125) {
-                let cardContents = document.getElementsByClassName('card-content');
-                for (let i = 0; i < cardContents.length; i++) {
-                    cardContents[i].style.setProperty('--efu-card-bg', 'var(--efu-white)');
-                }
-
-                let authorInfo = document.getElementsByClassName('author-info__sayhi');
-                for (let i = 0; i < authorInfo.length; i++) {
-                    authorInfo[i].style.setProperty('background', 'var(--efu-white-op)');
-                    authorInfo[i].style.setProperty('color', 'var(--efu-white)');
-                }
-            }
-        }
-
-        document.getElementById("coverdiv").classList.add("loaded");
-        initThemeColor();
-    } else {
-        document.documentElement.style.setProperty('--efu-main', 'var(--efu-theme)');
-        document.documentElement.style.setProperty('--efu-main-op', 'var(--efu-theme-op)');
-        document.documentElement.style.setProperty('--efu-main-op-deep', 'var(--efu-theme-op-deep)');
-        document.documentElement.style.setProperty('--efu-main-none', 'var(--efu-theme-none)');
-        initThemeColor();
-    }
+    const authorInfo = document.querySelectorAll('.sayhi');
+    authorInfo.forEach(item => {
+        item.style.setProperty('background', 'var(--efu-white-op)');
+        item.style.setProperty('color', 'var(--efu-white)');
+    });
 }
